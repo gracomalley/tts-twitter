@@ -4,4 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :tweets
+
+  mount_uploader :avatar, AvatarUploader
+
+ # validates :username, presence: true
+ # validates :username, uniqueness: true
+	validates :username, presence: true, uniqueness: true
 end
